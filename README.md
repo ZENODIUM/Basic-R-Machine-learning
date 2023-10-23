@@ -4,16 +4,16 @@ This repository contains a collection of RMarkdown documents that demonstrate va
 
 ## Table of Contents
 
-1. [Area Chart](#area-chart)
-2. [K-Means Clustering](#k-means-clustering)
-3. [Correlation Plot](#correlation-plot)
-4. [Decision Tree](#decision-tree)
-5. [Heatmap](#heatmap)
-6. [Hierarchical Clustering](#hierarchical-clustering)
-7. [Linear Regression](#linear-regression)
-8. [Logistic Regression](#logistic-regression)
-9. [Support Vector Machine (SVM)](#support-vector-machine-svm)
-10. [Data Visualization](#data-visualization)
+1. Area Chart
+2. K-Means Clustering
+3. Correlation Plot
+4. Decision Tree
+5. Heatmap
+6. Hierarchical Clustering
+7. Linear Regression
+8. Logistic Regression
+9. Support Vector Machine (SVM)
+10. Data Visualization
 
 ### Usage
 
