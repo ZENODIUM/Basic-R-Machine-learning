@@ -1,0 +1,18 @@
+
+data(mtcars)
+
+# Create a line chart 
+plot(mtcars$mpg ~ mtcars$cyl, type = "l", xlab = "Number of Cylinders", ylab = "Miles per Gallon", main = "Line Chart of MPG by Cylinders")
+
+# Extract car makes from the 'carname' column
+mtcars$make <- gsub(" .*", "", rownames(mtcars))
+
+# Create a bar chart 
+bar_data <- aggregate(mpg ~ make, data = mtcars, FUN = mean)
+barplot(bar_data$mpg, names.arg = bar_data$make, xlab = "Car Make", ylab = "Average MPG", main = "Bar Chart of Average MPG by Car Make")
+
+#Box plot
+boxplot(mpg ~ make, data = mtcars, xlab = "Car Make", ylab = "Miles per Gallon", main = "Box Plot of MPG by Car Make")
+
+#Scatter plot
+plot(mtcars$hp, mtcars$mpg, xlab = "Horsepower", ylab = "Miles per Gallon", main = "Scatter Plot of MPG vs. Horsepower")

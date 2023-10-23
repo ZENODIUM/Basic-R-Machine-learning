@@ -1,0 +1,13 @@
+
+library(tree)
+
+
+data(iris)
+
+tree_model <- tree(Species ~ ., data = iris)
+
+
+print(tree_model)
+
+plot(tree_model)
+text(tree_model)

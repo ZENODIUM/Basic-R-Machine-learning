@@ -1,0 +1,9 @@
+data(mtcars)
+model <- lm(mpg ~ wt + hp + qsec, data = mtcars)
+summary(model)
+predicted_mpg <- predict(model, newdata = mtcars)
+cat("Predicted MPG:\n")
+head(predicted_mpg)
+plot(mtcars$mpg, predicted_mpg, main = "Linear Regression: Predicted vs. Actual MPG", 
+     xlab = "Actual MPG", ylab = "Predicted MPG")
+abline(0, 1, col = "red")

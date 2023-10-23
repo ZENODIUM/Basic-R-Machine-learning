@@ -1,0 +1,16 @@
+data(iris)
+
+# Select the columns for clustering (in this case, all columns except the species)
+data_for_clustering <- iris[, -5]  # Exclude the 'Species' column
+
+
+k <- 3
+
+kmeans_result <- kmeans(data_for_clustering, centers = k)
+
+cluster_assignments <- kmeans_result$cluster
+print(cluster_assignments)
+
+# View cluster centers
+cluster_centers <- kmeans_result$centers
+print(cluster_centers)

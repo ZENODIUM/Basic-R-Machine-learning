@@ -1,0 +1,23 @@
+# Load the required packages
+library(ggplot2)
+library(reshape2)
+
+# Load the 'iris' dataset (if not already loaded)
+data(iris)
+
+# Calculate the correlation matrix
+cor_matrix <- cor(iris[, 1:4])
+
+# Reshape 
+cor_data <- melt(cor_matrix)
+
+# Create a heatmap
+heatmap_chart <- ggplot(cor_data, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile() +
+  labs(x = "Variable 1", y = "Variable 2", fill = "Correlation") +
+  scale_fill_gradient(low = "blue", high = "red") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Display the heatmap
+print(heatmap_chart)

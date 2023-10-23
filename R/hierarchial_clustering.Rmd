@@ -1,0 +1,17 @@
+# Load a dataset (for demonstration, we'll use the built-in 'USArrests' dataset)
+data("USArrests")
+
+# Perform hierarchical clustering using complete linkage
+dist_matrix <- dist(USArrests)  # Calculate the distance matrix
+hierarchical_cluster <- hclust(dist_matrix, method = "complete")
+
+# Plot the dendrogram
+plot(hierarchical_cluster, main = "Hierarchical Clustering Dendrogram", xlab = "States")
+
+# Cut the dendrogram to create clusters (you can adjust the height for the desired number of clusters)
+cut_tree_result <- cutree(hierarchical_cluster, h = 50)
+
+# Add cluster labels to the original dataset
+USArrests$Cluster <- cut_tree_result
+
+head(USArrests)

@@ -1,0 +1,24 @@
+
+library(e1071)
+
+
+data(iris)
+
+
+iris$IsSetosa <- ifelse(iris$Species == "setosa", 1, -1)
+
+# Split the data into training and testing sets
+set.seed(123)  # For reproducibility
+sample_indices <- sample(nrow(iris), nrow(iris) * 0.7)  # 70% for training
+train_data <- iris[sample_indices, ]
+test_data <- iris[-sample_indices, ]
+
+svm_model <- svm(IsSetosa ~ Sepal.Length + Sepal.Width, data = train_data)
+
+predictions <- predict(svm_model, newdata = test_data)
+
+confusion_matrix <- table(Actual = test_data$IsSetosa, Predicted = predictions)
+print(confusion_matrix)
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+print(paste("Accuracy:", accuracy))

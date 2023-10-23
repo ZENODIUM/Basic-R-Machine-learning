@@ -1,0 +1,40 @@
+
+data(iris)
+
+
+iris$IsSetosa <- ifelse(iris$Species == "setosa", 1, 0)
+
+logistic_model <- glm(IsSetosa ~ Sepal.Length + Sepal.Width, data = iris, family = binomial)
+
+summary(logistic_model)
+
+predicted_probabilities <- predict(logistic_model, newdata = iris, type = "response")
+
+
+cat("Predicted Probabilities (Setosa):\n")
+head(predicted_probabilities)
+
+
+predicted_class <- ifelse(predicted_probabilities >= 0.5, 1, 0)
+
+
+cat("Predicted Classes (0 = Not Setosa, 1 = Setosa):\n")
+head(predicted_class)
+
+actual_class <- iris$IsSetosa
+accuracy <- mean(predicted_class == actual_class)
+cat("Accuracy:", accuracy, "\n")
+
+plot(jitter(actual_class), jitter(predicted_class), 
+     xlab = "Actual", ylab = "Predicted",
+     main = "Actual vs. Predicted Values",
+     pch = 19, col = "blue")
+new_data <- data.frame(Sepal.Length = 5.1, Sepal.Width = 3.5)
+
+# Use the 'predict' function to make predictions for the new data
+predicted_probabilities <- predict(logistic_model, newdata = new_data, type = "response")
+
+# Display the predicted probabilities
+cat("Predicted Probabilities (Setosa) for Manual Values:\n")
+cat(predicted_probabilities)
+
