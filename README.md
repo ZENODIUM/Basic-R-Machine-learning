@@ -21,7 +21,7 @@ To run these files follow these steps:
 
 1. Open any ".Rmd" in RStudio.
 2. Install any required packages as mentioned in the document.
-3. Run the file
+3. Run the file or the code section
 
 
 
